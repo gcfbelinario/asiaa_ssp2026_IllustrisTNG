@@ -1,0 +1,31 @@
+#!/bin/bash
+#PBS -N TNG100_1_groupcat_50
+#PBS -o /theory/home/gbelinar/IllustrisTNG/logs/TNG100_1_groupcat_50.out
+#PBS -e /theory/home/gbelinar/IllustrisTNG/logs/TNG100_1_groupcat_50.err
+#PBS -l select=1:ncpus=1
+#PBS -l walltime=24:00:00
+#PBS -q serial
+#PBS -W sandbox=PRIVATE
+#PBS -S /bin/bash
+
+cd $PBS_O_WORKDIR
+
+# Load environment
+. /etc/profile.d/modules.sh
+module purge
+module load python/miniconda3
+
+echo "========================================"
+echo "Job ID      : $PBS_JOBID"
+echo "Host        : $(hostname)"
+echo "Directory   : $(pwd)"
+echo "Python      : $(which python)"
+python --version
+echo "Started     : $(date)"
+echo "========================================"
+
+python /theory/home/gbelinar/IllustrisTNG/scripts/TNG100-1_groupcat_50.py
+
+echo "========================================"
+echo "Finished    : $(date)"
+echo "========================================"
