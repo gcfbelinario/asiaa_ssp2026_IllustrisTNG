@@ -66,12 +66,13 @@ for url in files:
             for chunk in r.iter_content(chunk_size=1024*1024):
                 if chunk:
                     f.write(chunk)
-        
-        print(f"Downloading {filename} complete.")
-    
+
     except Exception as e:
-        print(f"Failed to download {filename}: {e}")
-        print("Proceeding download of next file ...")
+            
+            print(f"Failed to download {filename}: {e}")
+            print("Proceeding download of next file ...")
+            
+    print(f"Downloading {filename} complete.")
 
 print(f"Downloading {SIMULATION}_groupcat_{SNAPSHOT} complete.")
 
