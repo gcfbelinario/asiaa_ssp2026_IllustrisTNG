@@ -3,13 +3,13 @@ import requests
 import os
 
 # request specifications
-API_KEY = os.environ["TNG_API_KEY"]
+API_KEY = "2b53ab2137136266330440cdef40b53a"
 HEADERS = {"api-key": API_KEY}
 
 
 # target data
 SIMULATION = "TNG-Cluster"
-SNAPSHOT = 33
+SNAPSHOT = 50
 
 
 # make directory for data storage

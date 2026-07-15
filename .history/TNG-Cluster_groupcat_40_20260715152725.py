@@ -9,12 +9,11 @@ HEADERS = {"api-key": API_KEY}
 
 # target data
 SIMULATION = "TNG-Cluster"
-SNAPSHOT = 33
+SNAPSHOT = 40
 
 
 # make directory for data storage
-#OUTPUT_DIR = f"/theory/lts/gbelinar/IllustrisTNG/{SIMULATION}_groupcat_{SNAPSHOT}"
-OUTPUT_DIR = f"{SIMULATION}_groupcat_{SNAPSHOT}"
+OUTPUT_DIR = f"/theory/lts/gbelinar/IllustrisTNG/{SIMULATION}_groupcat_{SNAPSHOT}"
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
 

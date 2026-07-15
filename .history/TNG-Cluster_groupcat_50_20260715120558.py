@@ -3,13 +3,13 @@ import requests
 import os
 
 # request specifications
-API_KEY = os.environ["TNG_API_KEY"]
+API_KEY = "2b53ab2137136266330440cdef40b53a"
 HEADERS = {"api-key": API_KEY}
 
 
 # target data
 SIMULATION = "TNG-Cluster"
-SNAPSHOT = 33
+SNAPSHOT = 50
 
 
 # make directory for data storage
@@ -61,19 +61,11 @@ for url in files:
         r = requests.get(url, headers=HEADERS, stream=True, timeout=60)
         r.raise_for_status()
 
-        total = int(r.headers.get("content-length", 0))
-        downloaded = 0
-
         with open(filepath, "wb") as f:
 
             for chunk in r.iter_content(chunk_size=1024*1024):
                 if chunk:
                     f.write(chunk)
-                    downloaded += len(chunk)
-
-                    if total:
-                        percent = downloaded / total * 100
-                        print(f"{filename}: {percent:.1f}%", end="\r")
         
         print(f"Downloading {filename} complete.")
     
